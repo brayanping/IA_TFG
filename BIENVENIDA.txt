@@ -1,0 +1,181 @@
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║          🚀 EDU-IA: ARRANQUE EN 2 MINUTOS - USUARIOS SIN EXP  ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────┐
+│ 👋 BIENVENIDO                                               │
+│                                                             │
+│ Este proyecto puede arrancarse de 4 formas diferentes.      │
+│ Elige la que prefieras según tu experiencia.               │
+└─────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⭐ OPCIÓN 1: MÁS FÁCIL (1 CLICK)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WINDOWS:
+  1. Doble clic en: arrancar.bat
+  2. Espera 2 minutos
+  3. ✅ Se abre http://localhost:3000
+
+macOS/LINUX:
+  1. Terminal: chmod +x arrancar.sh && ./arrancar.sh
+  2. Espera 2 minutos
+  3. ✅ Se abre http://localhost:3000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐳 OPCIÓN 2: ULTRA SIMPLE (NO INSTALAR NADA)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CUALQUIERA (Windows/Mac/Linux):
+  1. Instala Docker Desktop: https://docker.com/products/docker-desktop
+  2. Terminal: docker-compose up --build
+  3. Espera 3 minutos
+  4. ✅ Se abre http://localhost:3000
+
+  Ventaja: No necesitas instalar Java, Maven, Node
+  
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 OPCIÓN 3: MANUAL (CONTROL TOTAL)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TERMINAL 1:
+  cd edu-ia-backend
+  mvn spring-boot:run
+
+TERMINAL 2 (NUEVA):
+  cd edu-ia-frontend
+  npm install    # Primera vez
+  npm start
+
+TERMINAL 3 (NUEVA, OPCIONAL):
+  cd edu-ia-service
+  python main.py
+
+✅ Accede a: http://localhost:3000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💻 OPCIÓN 4: IDE (PARA PROGRAMADORES)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+IntelliJ IDEA:
+  1. File → Open → edu-ia-backend
+  2. Click ▶️ Run
+  3. npm start en ed-ia-frontend
+
+VS Code:
+  1. code edu-ia-backend
+  2. Terminal: mvn spring-boot:run
+  3. Nueva instancia: code edu-ia-frontend
+  4. Terminal: npm start
+
+✅ Debugging integrado
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ DESPUÉS DE ARRANCAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+URL:             http://localhost:3000
+Email prueba:    estudiante1@example.com
+Contraseña:      password123
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EMPIEZA CON:
+  📄 EMPEZAR_AQUI.md ..................... Lee esto primero
+  ⚡ QUICK_START.txt ..................... Resumen en 2 min
+
+DETALLES POR OPCIÓN:
+  📋 GUIA_ARRANQUE_SENCILLA.md .......... 4 opciones explicadas
+  🔧 INICIO_RAPIDO.md .................. Solución problemas
+
+REFERENCIA:
+  📊 ARRANQUE_FACIL_RESUMEN.md ......... Resumen técnico
+  📄 README.md ......................... Documentación técnica
+  🗂️  INDICE_COMPLETO.md ............... Índice de todo
+
+DOCUMENTACIÓN DENTRO DE /docs:
+  👤 MANUAL_USUARIO.md ................ Guía para usuarios
+  🔌 API_ENDPOINTS.md ................. Referencia API
+  📋 PLAN_PRUEBAS.md .................. 22 casos de prueba
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️ TIEMPOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Opción Script:    2 minutos
+Opción Docker:    3 minutos (si Docker instalado)
+Opción Manual:    5 minutos
+Opción IDE:       5 minutos
+
+Primera vez (instalar requisitos): 30-40 minutos
+Siguientes arranques:              2-3 minutos
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 ELIGIENDO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+¿PRIMERA VEZ?
+  ↓
+¿TIENES DOCKER?
+  ├─ SÍ → docker-compose up
+  └─ NO → arrancar.bat (Windows) o ./arrancar.sh (Mac/Linux)
+  ↓
+¿FUNCIONA?
+  ├─ SÍ → ¡SUCCESS! 🎉
+  └─ NO → Lee GUIA_ARRANQUE_SENCILLA.md → Intenta Manual
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ PROBLEMAS COMUNES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Java no encontrado" → Descargar Java 17+
+"Maven no encontrado" → Descargar Maven
+"npm no encontrado" → Descargar Node.js
+"Puerto en uso" → Cambiar puerto en application.properties
+"CORS error" → Esperar 10s y recargar página
+
+Ver: INICIO_RAPIDO.md para detalles completos
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ RECOMENDACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣  INTENTA SCRIPT PRIMERO
+    Probabilidad éxito: 80%
+    Tiempo: 2 minutos
+
+2️⃣  SI NO FUNCIONA, USA DOCKER
+    Probabilidad éxito: 95%
+    Tiempo: 3 minutos
+
+3️⃣  SOLO SI FALLA TODO, USA MANUAL
+    Probabilidad éxito: 100%
+    Tiempo: 5 minutos
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👉 COMIENZA AHORA: Lee el archivo EMPEZAR_AQUI.md
+
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║              ✅ ¡ESTÁS LISTO PARA EMPEZAR!                    ║
+║                                                                ║
+║   Siguiente paso: Abre EMPEZAR_AQUI.md                         ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+

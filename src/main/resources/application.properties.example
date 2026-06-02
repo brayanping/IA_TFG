@@ -1,0 +1,63 @@
+# ============================================
+# CONFIGURACIÓN POR DEFECTO - Edu-IA Backend
+# ============================================
+# 
+# Aplicación: Spring Boot
+# Base de datos: H2 (desarrollo)
+# Puerto: 8080
+#
+# NO MODIFICAR NADA - Ya está preconfigurado
+# ============================================
+
+# ========== BASE DE DATOS ==========
+# Desarrollo: H2 (base de datos embebida, sin instalación)
+# Producción: PostgreSQL (comentar H2 y usar las líneas PostgreSQL)
+
+# H2 - Desarrollo (ACTIVO)
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+
+# PostgreSQL - Producción (DESACTIVADO)
+# spring.datasource.url=jdbc:postgresql://localhost:5432/eduia_db
+# spring.datasource.username=postgres
+# spring.datasource.password=tu_password
+# spring.jpa.database-platform=org.hibernate.dialect.PostgreSQL10Dialect
+
+# JPA Config
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=false
+
+# ========== SERVIDOR ==========
+server.port=8080
+server.servlet.context-path=/api
+server.compression.enabled=true
+server.compression.min-response-size=1024
+
+# ========== JWT - AUTENTICACION ==========
+jwt.secret=clave_secreta_super_segura_cambiar_en_produccion_2026
+jwt.expiration=86400000
+
+# ========== SERVICIO IA ==========
+ia.service.url=http://localhost:8000
+ia.service.timeout=30000
+
+# ========== CORS ==========
+cors.allowed-origins=http://localhost:3000,http://localhost:3001,http://localhost:8080
+
+# ========== LOGGING ==========
+logging.level.root=INFO
+logging.level.com.dam.eduia=DEBUG
+logging.file.name=logs/application.log
+
+# ========== SPRING ==========
+spring.application.name=edu-ia-backend
+spring.profiles.active=dev
+
+# ========== JACKSON - JSON ==========
+spring.jackson.serialization.indent-output=true
+spring.jackson.default-property-inclusion=non_null
+

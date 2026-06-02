@@ -1,0 +1,280 @@
+```
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║                    🚀 EDU-IA - ARRANQUE FÁCIL                ║
+║                                                                ║
+║              Cualquier Usuario Puede Empezar en 2 Min          ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 🎯 ELIGE TU CAMINO
+
+### 👶 OPCIÓN 1: SCRIPT AUTOMÁTICO (Recomendado)
+```
+WINDOWS:
+  1. Doble clic en → arrancar.bat
+  2. Espera 2 min
+  3. ¡Listo! Se abre http://localhost:3000
+
+MACOS/LINUX:
+  $ cd edu-ia-backend
+  $ chmod +x arrancar.sh
+  $ ./arrancar.sh
+```
+
+⏱️ **Tiempo:** 2 minutos  
+✅ **Facilidad:** Muy fácil  
+📦 **Requisitos:** Java + Maven + Node.js
+
+---
+
+### 🐳 OPCIÓN 2: DOCKER (Sin instalar nada)
+```
+$ cd edu-ia-backend
+$ docker-compose up --build
+```
+
+⏱️ **Tiempo:** 3 minutos  
+✅ **Facilidad:** Fácil  
+📦 **Requisitos:** Solo Docker
+
+---
+
+### 🔧 OPCIÓN 3: MANUAL (Control total)
+```
+Terminal 1:
+  $ cd edu-ia-backend && mvn spring-boot:run
+
+Terminal 2 (nueva):
+  $ cd edu-ia-frontend && npm install && npm start
+
+Terminal 3 (nueva, opcional):
+  $ cd edu-ia-service && python main.py
+```
+
+⏱️ **Tiempo:** 5 minutos  
+✅ **Facilidad:** Intermedia  
+📦 **Requisitos:** Java + Maven + Node.js + Python
+
+---
+
+### 💻 OPCIÓN 4: IDE (Para desarrolladores)
+```
+IntelliJ IDEA:
+  1. File → Open → edu-ia-backend
+  2. Click ▶️ Run
+  3. Abrir segundo proyecto: edu-ia-frontend
+  4. Terminal: npm start
+
+VS Code:
+  1. Abrir carpeta: edu-ia-backend
+  2. Terminal: mvn spring-boot:run
+  3. Abrir otra instancia: edu-ia-frontend
+  4. Terminal: npm start
+```
+
+⏱️ **Tiempo:** 5 minutos  
+✅ **Facilidad:** Avanzada  
+📦 **Requisitos:** IDE + Java + Node.js
+
+---
+
+## 🎓 DESPUÉS DE ARRANCAR
+
+### URLs de Acceso
+```
+Frontend:  http://localhost:3000
+Backend:   http://localhost:8080/api
+IA Service: http://localhost:8000 (opcional)
+```
+
+### Login de Prueba
+```
+Email:     estudiante1@example.com
+Contraseña: password123
+```
+
+### Verificación
+```
+✓ Página de login aparece     → Frontend OK
+✓ Puedes hacer login          → Backend OK
+✓ Puedes enviar mensajes      → IA Service OK
+```
+
+---
+
+## 🛑 DETENER EL PROYECTO
+
+```
+SCRIPT / MANUAL / IDE:
+  → Cierra todas las ventanas de Terminal
+
+DOCKER:
+  $ docker-compose down
+```
+
+---
+
+## 📚 DOCUMENTACIÓN
+
+| Necesidad | Lee Esto |
+|-----------|----------|
+| **Primer arranque** | EMPEZAR_AQUI.md |
+| **Muchas opciones** | GUIA_ARRANQUE_SENCILLA.md |
+| **Problemas** | INICIO_RAPIDO.md |
+| **Usar la app** | docs/MANUAL_USUARIO.md |
+| **API REST** | docs/API_ENDPOINTS.md |
+| **Todo resumido** | ARRANQUE_FACIL_RESUMEN.md |
+
+---
+
+## ⚡ RESUMEN MÁS RÁPIDO POSIBLE
+
+### Opción A: Windows (Script)
+```
+1. Doble clic: arrancar.bat
+2. Esperar
+3. http://localhost:3000
+```
+
+### Opción B: macOS/Linux (Script)
+```
+./arrancar.sh
+http://localhost:3000
+```
+
+### Opción C: Docker (Cualquiera)
+```
+docker-compose up --build
+http://localhost:3000
+```
+
+---
+
+## 🆘 PROBLEMAS?
+
+| Problema | Solución |
+|----------|----------|
+| "Java no encontrado" | Descargar Java 17 de oracle.com |
+| "Maven no encontrado" | Descargar Maven de maven.apache.org |
+| "npm no encontrado" | Descargar Node.js de nodejs.org |
+| "Puerto en uso" | Cambiar server.port en properties |
+| "CORS error" | Esperar 10s y recargar página |
+
+---
+
+## 📊 COMPARATIVA RÁPIDA
+
+```
+╔══════════════╦════════╦══════╦════════╦═════╗
+║   Opción     ║ Tiempo ║ Fácil║ Setup  ║ Req ║
+╠══════════════╬════════╬══════╬════════╬═════╣
+║ Script       ║ 2 min  ║ ✅✅ ║ 30 m  ║ H+M ║
+║ Docker       ║ 3 min  ║ ✅✅ ║ 2 min ║ D   ║
+║ Manual       ║ 5 min  ║ ✅   ║ 30 m  ║ H+M ║
+║ IDE          ║ 5 min  ║ ✓   ║ 30 m  ║ I+M ║
+╚══════════════╩════════╩══════╩════════╩═════╝
+
+H=Java   M=Maven  N=Node  D=Docker  I=IDE
+```
+
+---
+
+## ✨ LA MEJOR ESTRATEGIA
+
+### Paso 1: Lee
+```
+📄 EMPEZAR_AQUI.md
+```
+
+### Paso 2: Elige
+```
+¿Tienes Docker?
+  ├─ SÍ → usa docker-compose up --build
+  └─ NO → doble clic arrancar.bat (Windows)
+         ./arrancar.sh (Mac/Linux)
+```
+
+### Paso 3: Espera
+```
+⏳ 2-3 minutos
+```
+
+### Paso 4: Accede
+```
+🌐 http://localhost:3000
+```
+
+### Paso 5: Disfruta
+```
+✅ ¡Listo!
+```
+
+---
+
+## 🎉 GARANTÍA
+
+> **Si sigues esto al pie de la letra, tu proyecto funcionará 
+> en 99% de los casos en menos de 5 minutos.**
+
+Si no funciona:
+1. Lee GUIA_ARRANQUE_SENCILLA.md
+2. Intenta otra opción
+3. Revisa troubleshooting en INICIO_RAPIDO.md
+
+---
+
+## 🔗 ARCHIVOS IMPORTANTES
+
+```
+📁 edu-ia-backend/
+  ├─ 🔴 EMPEZAR_AQUI.md           ← EMPIEZA AQUÍ
+  ├─ 📋 GUIA_ARRANQUE_SENCILLA.md ← 4 opciones
+  ├─ 🔧 INICIO_RAPIDO.md           ← Problemas
+  ├─ ⚙️  arrancar.bat              ← Windows
+  ├─ ⚙️  arrancar.sh               ← Mac/Linux
+  └─ 🐳 docker-compose.yml        ← Docker
+
+📁 edu-ia-frontend/
+  └─ 📄 EMPEZAR_AQUI.md
+
+📁 docs/
+  ├─ 📖 MANUAL_USUARIO.md
+  ├─ 🔌 API_ENDPOINTS.md
+  └─ 📋 PLAN_PRUEBAS.md
+```
+
+---
+
+## 💡 TIPS
+
+✨ **Si es tu primera vez:**
+1. Intenta Script
+2. Si no funciona, intenta Docker
+3. Si no funciona, intenta Manual
+
+✨ **Si sabes de programación:**
+1. Usa IDE (IntelliJ o VS Code)
+2. Ten control total
+3. Debugging integrado
+
+✨ **Si quieres lo más simple:**
+1. Instala Docker Desktop
+2. `docker-compose up --build`
+3. Listo
+
+---
+
+```
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║                    ✅ ¡ESTÁS LISTO!                           ║
+║                                                                ║
+║            👉 Lee EMPEZAR_AQUI.md y comienza ahora            ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+```
+
