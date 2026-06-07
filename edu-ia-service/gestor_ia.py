@@ -25,12 +25,9 @@ class GestorIA:
 
     def procesar_documento(self, ruta_archivo: str, tipo: str):
         print(f"Intentando procesar: {ruta_archivo}")
-        print(f"Tipo: {tipo}")
-
         ruta_archivo = ruta_archivo.replace("\\", "/")
 
         if not os.path.exists(ruta_archivo):
-            print(f"Archivo no encontrado en: {ruta_archivo}")
             raise Exception(f"Archivo no encontrado: {ruta_archivo}")
 
         if tipo == "application/pdf":
@@ -45,21 +42,35 @@ class GestorIA:
         print(f"Procesados {len(fragmentos)} fragmentos")
         return len(fragmentos)
 
-    def hacer_pregunta(self, pregunta: str) -> str:
+    def hacer_pregunta(self, pregunta: str, historial: list = []) -> str:
         retriever = self.base_vectorial.as_retriever(search_kwargs={"k": 4})
+
+        historial_texto = ""
+        if historial:
+            for msg in historial[-6:]:
+                rol = "Usuario" if msg.rol == "usuario" else "Asistente"
+                historial_texto += f"{rol}: {msg.contenido}\n"
 
         prompt = ChatPromptTemplate.from_template("""
 Eres un asistente especializado en el ciclo DAM (Desarrollo de Aplicaciones Multiplataforma).
-Responde la pregunta usando el contexto de los documentos si está disponible.
+Responde usando el contexto de los documentos si está disponible.
 Si el contexto no contiene información relevante, responde usando tu conocimiento general sobre programación y DAM.
+Ten en cuenta el historial de la conversación para dar respuestas coherentes.
 
 Contexto de documentos: {context}
 
-Pregunta: {question}
-""")
+Historial de conversación:
+{historial}
+
+Pregunta actual: {question}
+        """)
 
         cadena = (
-            {"context": retriever, "question": RunnablePassthrough()}
+            {
+                "context": retriever,
+                "question": RunnablePassthrough(),
+                "historial": lambda _: historial_texto
+            }
             | prompt
             | self.llm
             | StrOutputParser()
