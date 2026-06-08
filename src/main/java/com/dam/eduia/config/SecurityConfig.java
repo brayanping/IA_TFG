@@ -35,9 +35,10 @@ public class SecurityConfig {
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()
-                .anyRequest().authenticated()
-            )
+    .requestMatchers("/api/auth/**").permitAll()
+    .requestMatchers("/api/estadisticas/globales").hasRole("ADMIN")
+    .anyRequest().authenticated()
+)
             .addFilterBefore(filtroJwt, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

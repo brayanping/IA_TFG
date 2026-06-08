@@ -44,7 +44,7 @@ public class ServicioAuth {
 
         // Genera el token y devuelve la respuesta
         String token = jwtUtil.generarToken(usuario.getEmail());
-        return new RespuestaAuthDTO(token, usuario.getUsername(), usuario.getEmail());
+       return new RespuestaAuthDTO(token, usuario.getUsername(), usuario.getEmail(), usuario.getRole());
     }
 
     // Hace login de un usuario existente
@@ -60,6 +60,6 @@ public class ServicioAuth {
 
         // Genera el token y devuelve la respuesta
         String token = jwtUtil.generarToken(usuario.getEmail());
-        return new RespuestaAuthDTO(token, usuario.getUsername(), usuario.getEmail());
+       return new RespuestaAuthDTO(token, usuario.getUsername(), usuario.getEmail(), usuario.getRole());
     }
 }
