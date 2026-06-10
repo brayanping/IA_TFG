@@ -24,23 +24,42 @@ class GestorIA:
         )
 
     def procesar_documento(self, ruta_archivo: str, tipo: str):
-        print(f"Intentando procesar: {ruta_archivo}")
-        ruta_archivo = ruta_archivo.replace("\\", "/")
+        try:
+            print(f"Intentando procesar: {ruta_archivo}")
+            ruta_archivo = ruta_archivo.replace("\\", "/")
 
-        if not os.path.exists(ruta_archivo):
-            raise Exception(f"Archivo no encontrado: {ruta_archivo}")
+            if not os.path.exists(ruta_archivo):
+                print(f"ERROR: Archivo no encontrado en: {ruta_archivo}")
+                raise Exception(f"Archivo no encontrado: {ruta_archivo}")
 
-        if tipo == "application/pdf":
-            cargador = PyPDFLoader(ruta_archivo)
-        else:
-            cargador = TextLoader(ruta_archivo, encoding="utf-8")
+            print(f"Tipo de archivo: {tipo}")
 
-        documentos = cargador.load()
-        divisor = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-        fragmentos = divisor.split_documents(documentos)
-        self.base_vectorial.add_documents(fragmentos)
-        print(f"Procesados {len(fragmentos)} fragmentos")
-        return len(fragmentos)
+            if tipo == "application/pdf":
+                cargador = PyPDFLoader(ruta_archivo)
+            else:
+                cargador = TextLoader(ruta_archivo, encoding="utf-8")
+
+            documentos = cargador.load()
+            print(f"Documentos cargados: {len(documentos)}")
+
+            divisor = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+            fragmentos = divisor.split_documents(documentos)
+            print(f"Fragmentos generados: {len(fragmentos)}")
+
+            if len(fragmentos) == 0:
+                print("AVISO: Sin fragmentos, usando documentos completos")
+                fragmentos = documentos
+
+            if len(fragmentos) == 0:
+                raise Exception("El documento está vacío o no tiene texto extraíble")
+
+            self.base_vectorial.add_documents(fragmentos)
+            print(f"OK: Procesados {len(fragmentos)} fragmentos correctamente")
+            return len(fragmentos)
+
+        except Exception as ex:
+            print(f"ERROR DETALLADO: {type(ex).__name__}: {str(ex)}")
+            raise ex
 
     def hacer_pregunta(self, pregunta: str, historial: list = []) -> str:
         retriever = self.base_vectorial.as_retriever(search_kwargs={"k": 4})
@@ -48,8 +67,17 @@ class GestorIA:
         historial_texto = ""
         if historial:
             for msg in historial[-6:]:
-                rol = "Usuario" if msg.rol == "usuario" else "Asistente"
-                historial_texto += f"{rol}: {msg.contenido}\n"
+                try:
+                    if hasattr(msg, 'rol'):
+                        rol_valor = msg.rol
+                        contenido_valor = msg.contenido
+                    else:
+                        rol_valor = msg.get("rol", "usuario")
+                        contenido_valor = msg.get("contenido", "")
+                    rol = "Usuario" if rol_valor == "usuario" else "Asistente"
+                    historial_texto += f"{rol}: {contenido_valor}\n"
+                except Exception:
+                    continue
 
         prompt = ChatPromptTemplate.from_template("""
 Eres un asistente especializado en el ciclo DAM (Desarrollo de Aplicaciones Multiplataforma).

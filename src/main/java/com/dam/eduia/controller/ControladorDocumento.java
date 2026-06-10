@@ -38,8 +38,8 @@ public class ControladorDocumento {
         User usuario = usuarioRepositorio.findByEmail(auth.getName())
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        // Guarda el archivo en disco
-        String carpeta = "C:/Users/BRAYAN/eclipse-workspace/edu-ia-backend/edu-ia-service/documentos/";
+        // Ruta relativa desde donde se ejecuta el backend
+        String carpeta = "../edu-ia-service/documentos/";
         Files.createDirectories(Paths.get(carpeta));
         Path ruta = Paths.get(carpeta + archivo.getOriginalFilename());
         Files.write(ruta, archivo.getBytes());
@@ -48,13 +48,13 @@ public class ControladorDocumento {
         Documento documento = new Documento();
         documento.setNombre(archivo.getOriginalFilename());
         documento.setTipo(archivo.getContentType());
-        documento.setRutaArchivo(ruta.toString());
+        documento.setRutaArchivo(ruta.toAbsolutePath().toString());
         documento.setUsuario(usuario);
 
         documentoRepositorio.save(documento);
 
         // Envía el documento al servicio de IA para procesarlo
-        servicioIACliente.procesarDocumento(ruta.toString(), archivo.getContentType());
+        servicioIACliente.procesarDocumento(ruta.toAbsolutePath().toString(), archivo.getContentType());
         documento.setProcesado(true);
         documentoRepositorio.save(documento);
 
